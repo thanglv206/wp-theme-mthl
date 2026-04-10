@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   db:
     image: mariadb:10.6
@@ -26,7 +24,7 @@ services:
       WORDPRESS_DB_NAME: wordpress
       WORDPRESS_DEBUG: 1
     volumes:
-      - ./:/var/www/html/wp-content/themes/mthl
+      - ./:/var/www/html
 
 volumes:
   db_data:
