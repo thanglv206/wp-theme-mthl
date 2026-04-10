@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "build-css": "npx tailwindcss -i ./assets/css/input.css -o ./assets/css/main.css",
+    "watch:css": "npx tailwindcss -i ./assets/css/input.css -o ./assets/css/main.css --watch",
+    "watch:browser": "browser-sync start --proxy 'localhost:8000' --files '**/*.php, assets/css/main.css, assets/js/**/*.js'",
+    "dev": "npm-run-all --parallel watch:*"
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^3.4.14"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.21",
+    "flowbite": "^2.5.2"
+  }
+}
