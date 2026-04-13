@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Open+Sans:wght@300;400;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#fdf9f4",
+                        "surface-variant": "#e6e2dd",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#715300",
+                        "on-secondary-fixed": "#261a00",
+                        "on-primary-fixed": "#410002",
+                        "primary-container": "#8b2621",
+                        "on-background": "#1c1c19",
+                        "inverse-on-surface": "#f4f0eb",
+                        "secondary-fixed": "#ffdfa0",
+                        "primary-fixed": "#ffdad6",
+                        "surface-container-highest": "#e6e2dd",
+                        "on-surface": "#1c1c19",
+                        "inverse-surface": "#31302d",
+                        "tertiary-fixed": "#ffdbd0",
+                        "on-tertiary-fixed": "#350f04",
+                        "outline": "#8a716e",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#f0aa93",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#703d2c",
+                        "secondary-fixed-dim": "#f6be39",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#fdb59e",
+                        "surface-tint": "#a63932",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#ddd9d5",
+                        "secondary-container": "#ffc641",
+                        "on-surface-variant": "#57423f",
+                        "surface": "#fdf9f4",
+                        "on-tertiary-fixed-variant": "#6b3928",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary": "#6b0d0d",
+                        "on-primary-fixed-variant": "#85221d",
+                        "primary-fixed-dim": "#ffb4ab",
+                        "surface-container-high": "#ebe8e3",
+                        "outline-variant": "#dec0bc",
+                        "surface-container": "#f1ede8",
+                        "secondary": "#795900",
+                        "on-primary-container": "#ffa399",
+                        "background": "#fdf9f4",
+                        "tertiary": "#542718",
+                        "surface-container-low": "#f7f3ee",
+                        "inverse-primary": "#ffb4ab"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Open Sans", "sans-serif"],
+                        "body": ["Open Sans", "sans-serif"],
+                        "label": ["Open Sans", "sans-serif"]
+                    }
+                },
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #fdf9f4;
+            color: #1c1c19;
+        }
+
+        .noto-serif {
+            font-family: 'Noto Serif', serif;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface selection:bg-primary-container selection:text-white">
+    <!-- TopNavBar -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-[#fdf9f4]/80 dark:bg-stone-950/80 backdrop-blur-md shadow-sm dark:shadow-none">
+        <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+            <div
+                class="text-2xl font-bold text-[#6b0d0d] dark:text-[#dec0bc] tracking-tight hover:scale-105 transition-transform duration-300 cursor-pointer">
+                Mắm Tép Hạ Long
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="text-[#1c1c19] dark:text-[#fdf9f4] hover:text-[#6b0d0d] transition-colors" href="#">Trang
+                    chủ</a>
+                <a class="text-[#1c1c19] dark:text-[#fdf9f4] hover:text-[#6b0d0d] transition-colors" href="#">Sản
+                    phẩm</a>
+                <a class="text-[#6b0d0d] dark:text-[#dec0bc] font-bold border-b-2 border-[#795900] pb-1" href="#">Tin
+                    tức</a>
+                <a class="text-[#1c1c19] dark:text-[#fdf9f4] hover:text-[#6b0d0d] transition-colors" href="#">Liên
+                    hệ</a>
+            </div>
+            <div class="text-[#6b0d0d] dark:text-[#dec0bc] font-semibold flex items-center gap-2 group cursor-pointer">
+                <span class="material-symbols-outlined text-sm">call</span>
+                <span class="group-hover:underline underline-offset-4">Hotline: 0987.654.321</span>
+            </div>
+        </div>
+    </nav>
+    <main class="pt-24 pb-20 max-w-5xl mx-auto px-6">
+        <!-- Breadcrumb -->
+        <nav aria-label="Breadcrumb" class="flex items-center space-x-2 text-sm text-on-surface-variant mb-12">
+            <a class="hover:text-primary transition-colors" href="#">Trang chủ</a>
+            <span class="material-symbols-outlined text-xs">chevron_right</span>
+            <a class="hover:text-primary transition-colors" href="#">Tin tức</a>
+            <span class="material-symbols-outlined text-xs">chevron_right</span>
+            <span class="text-on-surface font-medium truncate max-w-[200px] md:max-w-none">Bí quyết làm Mắm Tép Chưng
+                Thịt chuẩn vị Hạ Long</span>
+        </nav>
+        <!-- Article Header -->
+        <header class="mb-12">
+            <div class="flex items-center gap-4 mb-6">
+                <span
+                    class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold tracking-wider">ẨM
+                    THỰC</span>
+                <time class="text-sm text-on-surface-variant flex items-center gap-1" datetime="2024-05-20">
+                    <span class="material-symbols-outlined text-base">calendar_today</span>
+                    20 Tháng 5, 2024
+                </time>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-primary mb-8 leading-tight tracking-tight">
+                Bí quyết làm Mắm Tép Chưng Thịt chuẩn vị Hạ Long thơm lừng gian bếp
+            </h1>
+            <div class="relative w-full aspect-[21/9] overflow-hidden bg-surface-container-low rounded-xl">
+                <img alt="Mắm Tép Chưng Thịt" class="w-full h-full object-cover"
+                    data-alt="Close-up of golden brown stir-fried shrimp paste with pork in a traditional clay pot, aromatic steam rising, warm rustic lighting"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf0I2snpQN_8kXf1ta7Y-yOz57qLBellP7e-rO2CP1Kc_QrOUlF3ywG20_wuE7A2ArEzTPfzE0wSQ1ArFjWaHsD3NrL0vMxdtpzMGlKtRl4HIWQccA-oqr8Qb9aOL7yEUlwgGYYPbAAb4lqc-smhNmgCg6TC4ONx4DyALb85DQwYEH-srj3ApEEwRPGAfc8KxWA3FmDXKkDwJYsNLD4llC6r0syguth-9PaPM0eTvYslbj4uhwhrHDAy6KwOPblKGpfzqU64CpHJre" />
+            </div>
+        </header>
+        <!-- Article Content -->
+        <article class="prose prose-stone max-w-none text-on-surface/90 leading-relaxed space-y-8 text-lg">
+            <p class="font-semibold text-xl text-on-surface italic border-l-4 border-primary pl-6 py-2">
+                Mắm tép chưng thịt không chỉ là món ăn dân dã mà còn là biểu tượng của sự tỉ mỉ trong ẩm thực vùng biển
+                Quảng Ninh. Với hương vị đặc trưng từ mắm tép Hạ Long, món ăn này đã chinh phục biết bao thực khách
+                phương xa.
+            </p>
+            <p>
+                Để có được một mẻ mắm tép chưng thịt ngon, yếu tố then chốt đầu tiên chính là việc chọn lựa nguyên liệu.
+                Mắm tép phải là loại mắm tép cốt nguyên chất, được muối từ những con tép tươi xanh vừa đánh bắt tại vùng
+                Vịnh. Thịt heo phải chọn loại nạc vai có dắt chút mỡ để khi chưng, thịt không bị khô mà lại có độ ngậy
+                vừa phải.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
+                <div class="bg-surface-container-low p-8 rounded-xl border-l-4 border-secondary">
+                    <h3 class="text-primary font-bold mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined">restaurant_menu</span>
+                        Nguyên liệu chính
+                    </h3>
+                    <ul class="space-y-2 text-base">
+                        <li>• 500g thịt nạc vai xay vừa</li>
+                        <li>• 150ml mắm tép Hạ Long thượng hạng</li>
+                        <li>• Hành khô, sả băm nhỏ, tỏi, ớt</li>
+                        <li>• Đường thốt nốt, tiêu xanh</li>
+                    </ul>
+                </div>
+                <div class="relative rounded-xl overflow-hidden shadow-sm">
+                    <img alt="Ingredients" class="w-full h-full object-cover"
+                        data-alt="Artisanal glass jar of reddish shrimp paste next to fresh ingredients like chili, garlic, and lemongrass on a wooden board"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyYxoCt7n72uOip9_j5BhPgK-leolNVw-q7gYROzCbjOwWWMejbU3AKcfxmJ-rh0ylAcisJJNtWWfqMYDjkkAZM2UECxhYB5afjr0ab395swi46B6slQjrwgoF1Qcz1cfOZ08M8j5An1mWpbGk2fp191fI-ChOWW0ovI_XDEYOvtK4zmgNg7tIXprsEPAlZ1L6gJkJUorF32_MOml8Jztt-nqedvQrXH8yqxAdtiEC3Haltq3XUtle9692CNveGUGSwkVomAs2VaZD" />
+                </div>
+            </div>
+            <h2 class="text-3xl font-bold text-primary mt-12 mb-6">Các bước thực hiện tỉ mỉ</h2>
+            <p>
+                Bắt đầu bằng việc phi thơm hành, tỏi và sả băm trong mỡ nóng. Khi mùi thơm đã lan tỏa khắp gian bếp, bạn
+                cho thịt xay vào đảo đều tay cho đến khi thịt săn lại và ra bớt mỡ. Điểm quan trọng nhất chính là lúc đổ
+                mắm tép vào. Ngay lập tức, một mùi hương đặc trưng, đậm đà của biển cả sẽ bùng nổ.
+            </p>
+            <p>
+                Chưng mắm tép cần sự kiên nhẫn. Lửa phải để thật nhỏ, khuấy đều để thịt ngấm sâu hương vị mắm và các gia
+                vị. Quá trình này kéo dài khoảng 45-60 phút cho đến khi hỗn hợp chuyển sang màu nâu đỏ cánh gián đẹp
+                mắt, mỡ tiết ra trong veo và thịt có độ săn giòn nhất định.
+            </p>
+            <div class="my-12 p-1 bg-[#8b2621]/5 rounded-xl border border-primary-container/20">
+                <div class="bg-surface-container-lowest p-10 rounded-lg">
+                    <h4 class="text-primary font-bold mb-2">Mẹo nhỏ từ nghệ nhân:</h4>
+                    <p class="text-base">"Hãy thêm một chút đường thốt nốt vào giai đoạn cuối cùng. Vị ngọt thanh của
+                        đường sẽ cân bằng lại vị mặn của mắm, tạo nên một hậu vị tròn trịa, khó quên."</p>
+                </div>
+            </div>
+            <p>
+                Thưởng thức mắm tép chưng thịt vào những ngày trời se lạnh, ăn kèm với bát cơm trắng nóng hổi và vài lát
+                dưa leo giòn mát, bạn sẽ cảm nhận được trọn vẹn cái tâm của người làm nghề và hương vị đậm đà của di sản
+                ẩm thực Hạ Long.
+            </p>
+        </article>
+        <!-- Related News -->
+        <section class="mt-24 pt-16 border-t border-outline-variant/30">
+            <h2 class="text-3xl font-bold text-primary mb-12 flex items-center justify-between">
+                Tin tức liên quan
+                <a class="text-sm font-semibold text-secondary hover:underline flex items-center gap-1" href="#">
+                    Xem tất cả <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                </a>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/3] overflow-hidden rounded-xl bg-surface-container-low mb-4">
+                        <img alt="Squid cake"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            data-alt="Traditional grilled Vietnamese squid patties served on a green banana leaf with herbs and chili sauce"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy_iltPOSg0gI8AmZtuY3TWz2x2QTWGl8F8sXbBmTcVmsHateKqKiVntsWMPfnvhlzGTkNG4c9vGX6fkhHrpzMxks9er1eUMeLulJoQPY_N6EQycMWnPWOcdeWcYeW5COI6gUYD0q1dtyVt9Ewcq386xJ-rWTbdY61kgpaJBq2wIypqGR06DRir1VKMLVUe4m3gAMtVvLEoL4hgG8YhkdHvlorT03D7PVPw78O5AponMPK0n3YvOsR5ZASbLcqku1GOapks2n7AIF-" />
+                    </div>
+                    <span class="text-xs font-bold text-secondary tracking-widest uppercase">Câu chuyện thương
+                        hiệu</span>
+                    <h3
+                        class="text-xl font-bold mt-2 group-hover:text-primary transition-colors line-clamp-2 leading-tight">
+                        Hành trình 30 năm giữ gìn hương vị mắm tép truyền thống
+                    </h3>
+                </div>
+                <!-- Card 2 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/3] overflow-hidden rounded-xl bg-surface-container-low mb-4">
+                        <img alt="Coastal Market"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            data-alt="Traditional Vietnamese coastal morning fish market with colorful wooden boats and fresh seafood baskets"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCARxLrXRMpUfNsjYCrqdmRtA4LPD5_jSDfLYykMVjVDgEWAZTJJm9iFyquRk9hTijrGZANKmKAzjdmQEScvoOkWmVb2KgJ5HpCJFtGcrduINS1YaCfP_OUFG0m3ur6swkCZXY6BH9V4ECpnynTm6_pHfKEcGgMPgbekDUeWXJcbdeMYa-k7SwCjO9wybM_WLf54eODcUmayfE4mWV0cpJNOnrgeuXDTvh3ydCDBziNdx0aVCL_ps8Y7PQyorQ0SgMHPg11ndKcSe5t" />
+                    </div>
+                    <span class="text-xs font-bold text-secondary tracking-widest uppercase">Khám phá Hạ Long</span>
+                    <h3
+                        class="text-xl font-bold mt-2 group-hover:text-primary transition-colors line-clamp-2 leading-tight">
+                        Top 5 đặc sản Hạ Long mua về làm quà được yêu thích nhất
+                    </h3>
+                </div>
+                <!-- Card 3 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/3] overflow-hidden rounded-xl bg-surface-container-low mb-4">
+                        <img alt="Vietnamese Dining"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            data-alt="Elegant family dinner table with traditional Vietnamese bowls, chopsticks, and assorted local delicacies"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5pGC1CLIVGuwlipBnZeANvH4a7uHYhTkZc6QzXh3MszfMNPjBTrTwQwn7jfFvgBxKYlK4tfgB8aAFkPEUgJCdBgd2NNd8rQoHfryPjD14nLgxygrenuiWvJ2X_JoVs3y8sWPXbcjeW6ZBaJoKq1yyob1akFle202OOQ6FGEcSGIvON8xeZmF6skXd31Emvp8DK2d4aMcTs9kKqp5Lw_kbYw9xW-95mZTRTz6KVk8pMTq2ua_5U1kyqHveUbqyQD67h3kTwPqE_7Ti" />
+                    </div>
+                    <span class="text-xs font-bold text-secondary tracking-widest uppercase">Mẹo nhà bếp</span>
+                    <h3
+                        class="text-xl font-bold mt-2 group-hover:text-primary transition-colors line-clamp-2 leading-tight">
+                        Cách bảo quản mắm tép chưng thịt luôn thơm ngon trong 3 tháng
+                    </h3>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-[#f7f3ee] dark:bg-stone-900 w-full py-16 mt-20 tonal-shift-bg">
+        <div class="flex flex-col md:flex-row justify-between items-start px-8 max-w-7xl mx-auto gap-12">
+            <div class="max-w-md">
+                <div class="text-2xl font-bold text-[#6b0d0d] dark:text-[#dec0bc] mb-6">Mắm Tép Hạ Long</div>
+                <p class="text-on-surface/70 leading-relaxed mb-6">
+                    Tự hào mang đến những tinh hoa ẩm thực từ vùng biển Vịnh Hạ Long xinh đẹp. Sản phẩm của chúng tôi
+                    được chế biến theo phương pháp truyền thống, đảm bảo vệ sinh và giữ trọn hương vị nguyên bản.
+                </p>
+                <div class="flex space-x-4">
+                    <a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                        href="#">
+                        <span class="material-symbols-outlined">social_leaderboard</span>
+                    </a>
+                    <a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all"
+                        href="#">
+                        <span class="material-symbols-outlined">photo_camera</span>
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-12">
+                <div>
+                    <h4 class="font-bold text-primary mb-6">Liên kết nhanh</h4>
+                    <ul class="space-y-3">
+                        <li><a class="text-[#1c1c19]/70 dark:text-[#fdf9f4]/70 hover:text-[#6b0d0d] hover:underline decoration-[#795900] underline-offset-4 transition-all"
+                                href="#">Câu chuyện thương hiệu</a></li>
+                        <li><a class="text-[#1c1c19]/70 dark:text-[#fdf9f4]/70 hover:text-[#6b0d0d] hover:underline decoration-[#795900] underline-offset-4 transition-all"
+                                href="#">Chính sách bảo mật</a></li>
+                        <li><a class="text-[#1c1c19]/70 dark:text-[#fdf9f4]/70 hover:text-[#6b0d0d] hover:underline decoration-[#795900] underline-offset-4 transition-all"
+                                href="#">Hướng dẫn mua hàng</a></li>
+                        <li><a class="text-[#1c1c19]/70 dark:text-[#fdf9f4]/70 hover:text-[#6b0d0d] hover:underline decoration-[#795900] underline-offset-4 transition-all"
+                                href="#">Hệ thống đại lý</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-primary mb-6">Thông tin liên hệ</h4>
+                    <ul class="space-y-3 text-on-surface/70 text-sm">
+                        <li class="flex items-start gap-2">
+                            <span class="material-symbols-outlined text-primary text-base">location_on</span>
+                            Khu du lịch Bãi Cháy, TP. Hạ Long, Quảng Ninh
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-base">mail</span>
+                            info@mamtephalong.vn
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-base">smartphone</span>
+                            0987.654.321
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-8 mt-16 pt-8 border-t border-outline-variant/10 text-center text-on-surface/50 text-xs">
+            © 2024 Mắm Tép Hạ Long - Di sản ẩm thực vùng Vịnh. Bảo lưu mọi quyền.
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -6,7 +6,7 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main container mx-auto px-4 py-16 text-center max-w-2xl">
+<main id="primary" class="site-main max-w-7xl mx-auto px-8 pt-24 pb-16 text-center">
 	<section class="error-404 not-found">
 		<header class="page-header mb-8">
 			<h1 class="page-title text-5xl font-bold text-gray-900 mb-4"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'mthl' ); ?></h1>

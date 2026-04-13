@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages
+ * The home template file (Blog index)
  */
 
 get_header();
@@ -13,10 +13,9 @@ get_header();
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBMhbGpkAUs0NnNr-ZyCTJgxlbYtNlK7wccPQnL8I6hmjT8685anF4JbZWxDxN8bFLEZtPPTe7bPFWtniq2Zdjym0eQtmXwWLpYyKyeSP9FI1x67EWglVrtPqrZ8efW7JaNB-LYoR3ZSgg1VrSTKDvH8naNJNi4gz4nUu2RlYG4yMr9jaFH4i85pYCi3YHssRZmsf1CwZjC3KtjbGuMYWiLnA-p4yPGQ5MP9kMK1MdnCoLIQgyAx1ywL5VhMt9Jz72aAHqZIDz-nWB" />
         <div class="absolute inset-0 bg-black/60"></div>
         <div class="relative z-10 max-w-7xl mx-auto px-8 text-center text-white">
-            <?php
-            the_archive_title( '<h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">', '</h1>' );
-            the_archive_description( '<div class="max-w-2xl mx-auto text-base md:text-lg font-medium opacity-90 drop-shadow-md">', '</div>' );
-            ?>
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">Tin tức &amp; Chia sẻ</h1>
+            <div class="w-16 h-1 bg-secondary-fixed mx-auto mb-6"></div>
+            <p class="max-w-2xl mx-auto text-base md:text-lg font-medium opacity-90 drop-shadow-md">Khám phá văn hóa ẩm thực vùng biển Hạ Long, những câu chuyện về nghề mắm truyền thống và bí quyết chế biến món ngon mỗi ngày.</p>
         </div>
     </section>
 
@@ -87,9 +86,43 @@ get_header();
                 <?php mthl_pagination(); ?>
 
             <?php else : ?>
-                <div class="text-center py-20 text-on-surface-variant">
-                    <p class="text-xl">Chưa có bài viết nào.</p>
-                </div>
+                <!-- Empty State Section -->
+                <section class="py-24 px-8 max-w-4xl mx-auto">
+                    <div class="bg-surface-container-lowest p-12 md:p-20 flex flex-col items-center text-center">
+                        <!-- Illustrative Icon -->
+                        <div class="relative mb-8">
+                            <div class="w-32 h-32 bg-surface-container-high rounded-full flex items-center justify-center">
+                                <span class="material-symbols-outlined text-6xl text-outline-variant"
+                                    data-icon="description">description</span>
+                            </div>
+                            <div
+                                class="absolute -bottom-2 -right-2 w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center shadow-lg border-4 border-surface-container-lowest">
+                                <span class="material-symbols-outlined text-on-secondary-container text-2xl font-bold"
+                                    data-icon="search">search</span>
+                            </div>
+                        </div>
+                        <!-- Empty State Content -->
+                        <h2 class="text-3xl font-headline font-bold text-on-surface mb-4">
+                            Hiện chưa có bài viết nào
+                        </h2>
+                        <p class="text-on-surface-variant text-lg max-w-md mx-auto mb-10 leading-relaxed">
+                            Chúng tôi sẽ sớm cập nhật những tin tức mới nhất về ẩm thực và di sản Hạ Long. Quý khách vui lòng
+                            quay lại sau.
+                        </p>
+                        <!-- Action Button -->
+                        <a class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-lg font-bold hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-primary/10 group"
+                            href="<?php echo esc_url(home_url('/')); ?>">
+                            <span class="material-symbols-outlined text-xl" data-icon="arrow_back">arrow_back</span>
+                            Quay lại Trang chủ
+                        </a>
+                    </div>
+                    <!-- Decorative Elements -->
+                    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 opacity-40">
+                        <div class="h-[1px] bg-gradient-to-r from-transparent via-outline-variant to-transparent"></div>
+                        <div class="text-center italic font-headline text-secondary">Hương vị di sản vùng vịnh</div>
+                        <div class="h-[1px] bg-gradient-to-r from-transparent via-outline-variant to-transparent"></div>
+                    </div>
+                </section>
             <?php endif; ?>
         </div>
     </section>

@@ -2,4 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom base styles can go here */
+@layer base {
+    :root {
+        /* Colors (RGB values for Tailwind opacity support) */
+        --color-primary: 107 13 13;
+        /* #6b0d0d */
+        --color-primary-container: 139 38 33;
+        /* #8b2621 */
+        --color-secondary: 121 89 0;
+        /* #795900 */
+        --color-secondary-container: 255 198 65;
+        /* #ffc641 */
+        --color-on-secondary-container: 113 83 0;
+        /* #715300 */
+        --color-surface: 253 249 244;
+        /* #fdf9f4 */
+        --color-surface-container-lowest: 255 255 255;
+        /* #ffffff */
+        --color-surface-container-low: 247 243 238;
+        /* #f7f3ee */
+        --color-on-surface: 28 28 25;
+        /* #1c1c19 */
+        --color-outline-variant: 222 192 188;
+        /* #dec0bc */
+        --color-on-surface-variant: 87 66 63;
+        --color-on-primary: 255 255 255;
+        --color-on-secondary: 255 255 255;
+        --color-outline: 138 113 110;
+        --color-error-container: 255 218 214;
+        --color-on-error-container: 147 0 10;
+        --color-surface-container: 241 237 232;
+        --color-surface-container-high: 235 232 227;
+
+        /* Typography */
+        --font-heading: "Chiron GoRound TC", sans-serif;
+        --font-headline: "Chiron GoRound TC", sans-serif;
+        --font-body: "Chiron GoRound TC", sans-serif;
+        --font-label: "Chiron GoRound TC", sans-serif;
+    }
+}
+
+@layer components {
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+}
+
+@layer utilities {
+    .tonal-shift-bg {
+        background-color: var(--color-surface);
+    }
+
+    .tonal-shift-bg-above {
+        background-color: var(--color-surface-container-low);
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
