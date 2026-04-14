@@ -12,18 +12,18 @@ get_header();
         <img alt="Cảnh đẹp Hạ Long" class="absolute inset-0 w-full h-full object-cover"
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBMhbGpkAUs0NnNr-ZyCTJgxlbYtNlK7wccPQnL8I6hmjT8685anF4JbZWxDxN8bFLEZtPPTe7bPFWtniq2Zdjym0eQtmXwWLpYyKyeSP9FI1x67EWglVrtPqrZ8efW7JaNB-LYoR3ZSgg1VrSTKDvH8naNJNi4gz4nUu2RlYG4yMr9jaFH4i85pYCi3YHssRZmsf1CwZjC3KtjbGuMYWiLnA-p4yPGQ5MP9kMK1MdnCoLIQgyAx1ywL5VhMt9Jz72aAHqZIDz-nWB" />
         <div class="absolute inset-0 bg-black/60"></div>
-        <div class="relative z-10 max-w-7xl mx-auto px-8 text-center text-white">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 text-center text-white">
             <?php
-            the_archive_title( '<h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">', '</h1>' );
+            the_archive_title( '<h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg">', '</h1>' );
             the_archive_description( '<div class="max-w-2xl mx-auto text-base md:text-lg font-medium opacity-90 drop-shadow-md">', '</div>' );
             ?>
         </div>
     </section>
 
     <!-- Categories Filter -->
-    <section class="sticky top-[72px] z-40 bg-surface/95 backdrop-blur-sm border-b border-outline-variant/15 py-6">
-        <div class="max-w-7xl mx-auto px-8">
-            <div class="flex items-center justify-center gap-4 overflow-x-auto no-scrollbar">
+    <section class="sticky top-[72px] z-40 bg-surface/95 backdrop-blur-sm border-b border-outline-variant/15 py-4 md:py-6">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="flex items-center justify-start md:justify-center gap-2 md:gap-4 overflow-x-auto no-scrollbar pb-2 md:pb-0 -mx-4 px-4 md:-mx-0 md:px-0">
                 <?php
                 // Display categories as filter buttons
                 $categories = get_categories(array('hide_empty' => true));
@@ -34,11 +34,11 @@ get_header();
                 
                 // "Tất cả" button
                 $is_all_active = ($current_cat_id === 0 && !is_search()) ? 'bg-primary text-white shadow-md' : 'bg-surface-container-high text-on-surface-variant hover:bg-outline-variant/20';
-                echo '<a href="' . esc_url($blog_url) . '" class="px-8 py-2.5 rounded-xl font-bold transition-all whitespace-nowrap inline-flex items-center justify-center ' . esc_attr($is_all_active) . '">Tất cả</a>';
+                echo '<a href="' . esc_url($blog_url) . '" class="px-5 md:px-8 py-2 md:py-2.5 rounded-xl text-sm md:text-base font-bold transition-all whitespace-nowrap inline-flex items-center justify-center ' . esc_attr($is_all_active) . '">Tất cả</a>';
 
                 foreach($categories as $category) {
                     $is_active = ($current_cat_id === $category->term_id) ? 'bg-primary text-white shadow-md' : 'bg-surface-container-high text-on-surface-variant hover:bg-outline-variant/20';
-                    echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="px-8 py-2.5 rounded-xl font-bold transition-all whitespace-nowrap inline-flex items-center justify-center ' . esc_attr($is_active) . '">' . esc_html($category->name) . '</a>';
+                    echo '<a href="' . esc_url(get_category_link($category->term_id)) . '" class="px-5 md:px-8 py-2 md:py-2.5 rounded-xl text-sm md:text-base font-bold transition-all whitespace-nowrap inline-flex items-center justify-center ' . esc_attr($is_active) . '">' . esc_html($category->name) . '</a>';
                 }
                 ?>
             </div>
@@ -46,10 +46,10 @@ get_header();
     </section>
 
     <!-- News Grid -->
-    <section class="py-16 px-8 bg-surface">
+    <section class="py-10 md:py-16 px-4 md:px-8 bg-surface">
         <div class="max-w-7xl mx-auto">
             <?php if (have_posts()) : ?>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
                     <?php while (have_posts()) : the_post(); ?>
                         <article class="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
                             <a href="<?php the_permalink(); ?>" class="relative aspect-[4/3] overflow-hidden block">
@@ -68,10 +68,10 @@ get_header();
                                 }
                                 ?>
                             </a>
-                            <div class="p-6 space-y-3 flex-grow flex flex-col">
-                                <time class="text-secondary text-sm font-bold" datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
+                            <div class="p-4 md:p-6 space-y-3 flex-grow flex flex-col">
+                                <time class="text-secondary text-xs md:text-sm font-bold" datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
                                 <a href="<?php the_permalink(); ?>">
-                                    <h3 class="text-2xl font-bold text-on-surface group-hover:text-primary transition-colors leading-tight">
+                                    <h3 class="text-xl md:text-2xl font-bold text-on-surface group-hover:text-primary transition-colors leading-tight">
                                         <?php the_title(); ?>
                                     </h3>
                                 </a>
@@ -87,9 +87,30 @@ get_header();
                 <?php mthl_pagination(); ?>
 
             <?php else : ?>
-                <div class="text-center py-20 text-on-surface-variant">
-                    <p class="text-xl">Chưa có bài viết nào.</p>
-                </div>
+                <!-- Empty State Section -->
+                <section class="py-16 md:py-24 px-4 md:px-8 max-w-4xl mx-auto">
+                    <div class="bg-surface-container-lowest p-8 md:p-20 flex flex-col items-center text-center">
+                        <div class="relative mb-8">
+                            <div class="w-32 h-32 bg-surface-container-high rounded-full flex items-center justify-center">
+                                <span class="material-symbols-outlined text-6xl text-outline-variant" data-icon="description">description</span>
+                            </div>
+                            <div class="absolute -bottom-2 -right-2 w-12 h-12 bg-secondary-container rounded-full flex items-center justify-center shadow-lg border-4 border-surface-container-lowest">
+                                <span class="material-symbols-outlined text-on-secondary-container text-2xl font-bold" data-icon="search">search</span>
+                            </div>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+                            Hiện chưa có bài viết nào
+                        </h2>
+                        <p class="text-on-surface-variant text-lg max-w-md mx-auto mb-10 leading-relaxed">
+                            Chuyên mục này hiện chưa có bài viết. Vui lòng quay lại sau nhé.
+                        </p>
+                        <a class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-lg font-bold hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-primary/10 group"
+                            href="<?php echo esc_url(home_url('/')); ?>">
+                            <span class="material-symbols-outlined text-xl" data-icon="arrow_back">arrow_back</span>
+                            Quay lại Trang chủ
+                        </a>
+                    </div>
+                </section>
             <?php endif; ?>
         </div>
     </section>

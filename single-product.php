@@ -32,15 +32,15 @@ while (have_posts()):
     }
     ?>
 
-    <main class="max-w-7xl mx-auto px-8 pt-24 pb-16">
+    <main class="max-w-7xl mx-auto px-4 md:px-8 pt-20 md:pt-24 pb-12 md:pb-16">
         <!-- Breadcrumb -->
-        <nav class="flex items-center space-x-2 text-sm text-on-surface-variant mb-8">
+        <nav class="flex items-center space-x-2 text-sm text-on-surface-variant mb-6 md:mb-8">
             <a class="hover:text-primary transition-colors" href="<?php echo esc_url(home_url('/')); ?>">Trang chủ</a>
             <span class="material-symbols-outlined text-xs">chevron_right</span>
             <span class="text-on-surface font-semibold"><?php the_title(); ?></span>
         </nav>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20">
             <!-- Left: Image Gallery -->
             <div class="space-y-6">
                 <!-- Main Image -->
@@ -121,26 +121,27 @@ while (have_posts()):
                     class="inline-flex items-center px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-xs font-bold uppercase tracking-wider mb-4 w-fit">
                     Hạ Long Original
                 </div>
-                <h1 class="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
+                <h1 class="text-3xl md:text-5xl font-headline font-bold text-primary mb-4 md:mb-6 leading-tight">
                     <?php the_title(); ?>
                 </h1>
 
                 <!-- Pricing Section -->
                 <div
-                    class="bg-surface-container-lowest p-6 rounded-xl space-y-6 mb-8 border border-outline-variant/10 shadow-sm">
+                    class="bg-surface-container-lowest p-4 md:p-6 rounded-xl space-y-4 md:space-y-6 mb-6 md:mb-8 border border-outline-variant/10 shadow-sm">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                         <div class="flex items-baseline space-x-3">
                             <?php if ($sale_price): ?>
-                                <span class="text-3xl font-extrabold text-primary"><?php echo $formatted_sale_price; ?></span>
+                                <span
+                                    class="text-2xl md:text-3xl font-extrabold text-primary"><?php echo $formatted_sale_price; ?></span>
                                 <?php if ($price > $sale_price): ?>
                                     <span
-                                        class="text-on-surface-variant line-through text-lg opacity-60"><?php echo $formatted_price; ?></span>
+                                        class="text-on-surface-variant line-through text-base md:text-lg opacity-60"><?php echo $formatted_price; ?></span>
                                     <span
                                         class="bg-primary-container text-white text-[10px] px-2 py-0.5 rounded-full font-bold">-<?php echo $discount_percent; ?>%</span>
                                 <?php endif; ?>
                             <?php else: ?>
                                 <span
-                                    class="text-3xl font-extrabold text-primary"><?php echo $formatted_price ?: __('Liên hệ', 'mthl'); ?></span>
+                                    class="text-2xl md:text-3xl font-extrabold text-primary"><?php echo $formatted_price ?: __('Liên hệ', 'mthl'); ?></span>
                             <?php endif; ?>
                         </div>
                         <div class="flex gap-2">
@@ -154,7 +155,7 @@ while (have_posts()):
                 </div>
 
                 <!-- CTA -->
-                <a class="flex items-center justify-center space-x-3 w-full py-5 bg-gradient-to-r from-primary to-primary-container text-white rounded-xl text-lg font-bold hover:scale-[1.02] transition-transform shadow-lg shadow-primary/20 mb-8"
+                <a class="flex items-center justify-center space-x-3 w-full py-4 md:py-5 bg-gradient-to-r from-primary to-primary-container text-white rounded-xl text-base md:text-lg font-bold hover:scale-[1.02] transition-transform shadow-lg shadow-primary/20 mb-8"
                     href="tel:<?php echo esc_attr(preg_replace('/[^0-9]/', '', get_theme_mod('mthl_company_phone', '090 1234 567'))); ?>">
                     <span class="material-symbols-outlined">call</span>
                     <span>GỌI ĐẶT HÀNG NGAY -
@@ -186,11 +187,11 @@ while (have_posts()):
         </div>
 
         <!-- Description Content -->
-        <div class="mt-20">
-            <div class="bg-surface-container-low p-8 rounded-2xl">
+        <div class="mt-12 md:mt-20">
+            <div class="bg-surface-container-lowest border border-outline-variant/10 p-6 md:p-8 rounded-2xl">
                 <div>
-                    <h3 class="text-2xl font-bold text-primary mb-4">Mô tả sản phẩm</h3>
-                    <div class="text-on-surface-variant leading-relaxed prose prose-stone max-w-none">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 md:mb-6">Mô tả sản phẩm</h2>
+                    <div class="text-on-surface-variant text-base md:text-lg leading-relaxed prose prose-stone max-w-none">
                         <?php the_content(); ?>
                     </div>
                 </div>
@@ -198,15 +199,15 @@ while (have_posts()):
         </div>
 
         <!-- Related Products (Displaying latest products for now) -->
-        <div class="mt-24">
-            <div class="flex justify-between items-end mb-10">
+        <div class="mt-16 md:mt-24">
+            <div class="flex justify-between items-end mb-8 md:mb-10">
                 <div>
-                    <h2 class="text-3xl font-bold text-primary mb-2">Sản phẩm khác</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-2 md:mb-4">Sản phẩm khác</h2>
                     <div class="h-1 w-20 bg-secondary rounded-full"></div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
                 <?php
                 $related_args = array(
                     'post_type' => 'product',
@@ -243,10 +244,11 @@ while (have_posts()):
                                     </div>
                                 <?php endif; ?>
                             </a>
-                            <div class="p-6 space-y-4 flex-grow flex flex-col justify-between">
+                            <div class="p-4 md:p-6 space-y-3 md:space-y-4 flex-grow flex flex-col justify-between">
                                 <div>
                                     <a href="<?php the_permalink(); ?>">
-                                        <h3 class="text-xl font-bold group-hover:text-primary transition-colors">
+                                        <h3
+                                            class="text-lg md:text-xl font-headline font-bold group-hover:text-primary transition-colors">
                                             <?php the_title(); ?>
                                         </h3>
                                     </a>
@@ -254,15 +256,16 @@ while (have_posts()):
                                 <div>
                                     <div class="flex items-baseline gap-2 mb-3">
                                         <?php if ($rel_sale): ?>
-                                            <span class="text-xl font-bold text-secondary"><?php echo $rel_fmt_sale; ?></span>
                                             <span
-                                                class="text-xs text-on-surface-variant line-through opacity-60"><?php echo $rel_fmt_price; ?></span>
+                                                class="text-lg md:text-xl font-bold text-secondary"><?php echo $rel_fmt_sale; ?></span>
+                                            <span
+                                                class="text-xs md:text-sm text-on-surface-variant line-through opacity-60"><?php echo $rel_fmt_price; ?></span>
                                         <?php else: ?>
                                             <span
-                                                class="text-xl font-bold text-secondary"><?php echo $rel_fmt_price ?: __('Liên hệ', 'mthl'); ?></span>
+                                                class="text-lg md:text-xl font-bold text-secondary"><?php echo $rel_fmt_price ?: __('Liên hệ', 'mthl'); ?></span>
                                         <?php endif; ?>
                                     </div>
-                                    <div class="grid grid-cols-2 gap-3 pt-2">
+                                    <div class="grid grid-cols-2 gap-2 md:gap-3 pt-2">
                                         <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9]/', '', get_theme_mod('mthl_company_phone', '090 1234 567'))); ?>"
                                             class="text-center bg-primary text-white py-2 rounded-lg font-bold transition-all duration-300 hover:scale-105 text-xs">Đặt
                                             hàng</a>

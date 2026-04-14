@@ -6,8 +6,8 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main pt-24 pb-20 max-w-7xl mx-auto px-8">
-	<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+<main id="primary" class="site-main pt-20 md:pt-24 pb-12 md:pb-20 max-w-7xl mx-auto px-4 md:px-8">
+	<div class="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-12">
 		<!-- Main Content Area: 2/3 -->
 		<div class="lg:col-span-2">
 			<?php
@@ -20,15 +20,19 @@ get_header();
 				$blog_link = $blog_page_id ? get_permalink($blog_page_id) : home_url('/tin-tuc');
 				?>
 				<!-- Breadcrumb -->
-				<nav aria-label="Breadcrumb" class="flex items-center space-x-2 text-sm text-on-surface-variant mb-12">
-					<a class="hover:text-primary transition-colors" href="<?php echo esc_url(home_url('/')); ?>">Trang
-						chủ</a>
+				<nav aria-label="Breadcrumb"
+					class="flex flex-wrap items-center gap-2 text-xs md:text-sm text-on-surface-variant mb-6 md:mb-8">
+					<a class="hover:text-primary transition-colors flex items-center gap-1"
+						href="<?php echo esc_url(home_url('/')); ?>">
+						<span class="material-symbols-outlined text-[16px] md:text-[18px]">home</span>
+						<span class="hidden sm:inline">Trang chủ</span>
+					</a>
 					<span class="material-symbols-outlined text-xs">chevron_right</span>
 					<a class="hover:text-primary transition-colors"
 						href="<?php echo esc_url($blog_link); ?>"><?php echo esc_html($blog_title); ?></a>
 					<span class="material-symbols-outlined text-xs">chevron_right</span>
 					<span
-						class="text-on-surface font-medium truncate max-w-[200px] md:max-w-none"><?php the_title(); ?></span>
+						class="text-on-surface font-medium truncate max-w-[150px] sm:max-w-xs md:max-w-none"><?php the_title(); ?></span>
 				</nav>
 				<?php
 				get_template_part('template-parts/content', 'single');
@@ -60,17 +64,17 @@ get_header();
 					<!-- Related News -->
 					<div class="sticky top-[100px]">
 						<h2
-							class="text-2xl font-bold text-primary mb-8 border-b border-outline-variant/30 pb-4 flex items-center justify-between">
-							Tin bài liên quan
+							class="text-2xl font-bold text-primary mb-6 border-b border-outline-variant/30 pb-4 flex items-center justify-between gap-4">
+							<span class="flex-1">Tin bài liên quan</span>
 							<?php
 							$cat_link = get_category_link($category_id);
 							?>
-							<a class="text-sm font-semibold text-secondary hover:underline flex items-center gap-1"
+							<a class="text-sm font-semibold text-secondary hover:underline flex items-center gap-1 shrink-0 whitespace-nowrap"
 								href="<?php echo esc_url($cat_link); ?>">
 								Xem tất cả <span class="material-symbols-outlined text-xs">arrow_forward</span>
 							</a>
 						</h2>
-						<div class="flex flex-col gap-8">
+						<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
 							<?php
 							while ($related_query->have_posts()):
 								$related_query->the_post();
